@@ -112,8 +112,8 @@ const tabs = [StatsTab, ActivityTab, StatusTab, SettingsTab];
 function CartridgeSlot() {
   return (
     <div
-      className="absolute -top-8 left-1/2 -translate-x-1/2 h-14 rounded-t-xl flex flex-col items-center justify-between py-2 px-3 shadow-lg"
-      style={{ width: "38%", background: C.cartridge, zIndex: -1 }}
+      className="absolute left-1/2 -translate-x-1/2 rounded-t-xl flex flex-col items-center justify-between py-2 px-3 shadow-lg"
+      style={{ width: "38%", height: 56, top: -32, background: C.cartridge, zIndex: 1 }}
     >
       <div className="rounded-sm" style={{ width: "80%", height: 20, background: C.label, opacity: 0.8 }} />
       <div className="flex gap-1">
@@ -213,12 +213,15 @@ export default function DeviceWidget() {
         }
       `}</style>
       <div className="relative" style={{ width: 320, height: 320 }}>
+        {/* Cartridge sits behind the body circle (z-index 1) */}
         <CartridgeSlot />
+        {/* Body circle overlaps cartridge bottom (z-index 2) */}
         <div
           className="w-full h-full rounded-full shadow-2xl relative overflow-visible"
           style={{
             background: C.body,
             boxShadow: `0 0 0 4px ${C.bodyDark}4D, 0 25px 50px -12px rgba(0,0,0,0.25)`,
+            zIndex: 2,
           }}
         >
           <DeviceScreen activeTab={activeTab} />
