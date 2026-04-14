@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-device-body: #1a8a8a;
+  --color-device-body-dark: #147070;
+  --color-screen-bezel: #1a1a2e;
+  --color-screen-bg-from: #c8f0f0;
+  --color-screen-bg-to: #80d8d8;
+  --color-cartridge: #e87830;
+  --color-cartridge-label: #607080;
+  --color-connector-pin: #d4a843;
+  --color-button-primary: #f0a030;
+  --color-button-hover: #e89020;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  margin: 0;
+}
